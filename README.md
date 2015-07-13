@@ -13,6 +13,7 @@ Specilized PHP Scaffolding Constructor.
 ```
 generators/controller/blueprint.php      // the main control script for generating stuff...
 generators/controller/dependencies.php   // the generator dependencies
+generators/controller/instructions.php   // built-in instructions
 generators/controller/postproduction.php // for hanlding post-initialization
 generators/controller/facilities/route/route.php
 generators/controller/resources/templates/
@@ -40,11 +41,61 @@ generators/action/blueprint.php
 class ControllerBlueprint extends Blueprint 
 {
 
+
+    /**
+     * Triggered before generating stuff...
+     */
     public function prepare() {  }
 
-    public function generate() {  }
 
-    public function finish() {  }
+    /**
+     * The main generator logics
+     */
+    public function generate() 
+    {
+        // Some built-in instructions
+
+        // Run composer install
+        composer_install([  ... ]);
+
+        // Run composer update
+        composer_update([ ... ]);
+
+        // Adding composer requirements
+        composer_require([ ... ]);
+
+        // Updating composer.json for some fields
+        composer_set( );
+
+
+
+
+        // git clone as...
+        git_clone('git://github.com/c9s/ActionKit', 'actionkit');
+        git_add($files);
+        git_add("src/*.php");
+
+        // git commit files under src directory
+        git_commit("src");
+
+        move_files('*.php', ...);
+
+        rename_files([ 
+          'foo' => 'bar'
+        ]);
+
+        copy_files( 'templates' );
+
+        render_files('...');
+
+        install_resources('images' , $targetDir);
+        install_resources('js' , $targetDir);
+    }
+
+    public function finish() 
+    {
+
+    }
 
 }
 
