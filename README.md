@@ -16,6 +16,8 @@ generators/controller/dependencies.php   // the generator dependencies
 generators/controller/postproduction.php // for hanlding post-initialization
 generators/controller/facilities/route/route.php
 generators/controller/resources/templates/
+generators/controller/scaffolding/__foo__/        // the directory structure under scaffolding directory will be created.
+generators/controller/scaffolding/__bar__/        // identities wrapped with underscore can be replaced by variables.
 
 generators/schema/blueprint.php
 generators/schema/facilities/model/...
@@ -36,7 +38,22 @@ $loader = new Construct\GeneratorLoader([
 $generators = $loader->search('/some pattern/');
 $generator = $loader->load('controller');
 $generator->generate([  
-  ....
+
+  'my_class_name' => 'MyController',
+  'my_extra_var'  => 'indexAction',
+
+  // variables that will be applied to scaffolding structure 
+  '__path_vars' => [
+    '__foo__' => 'assets'
+    '__bar__' => '',
+  ],
+
+
+], [  
+  // generator options for dependencies
+  'dependency1' => [ .... ],
+  'dependency2' => [ .... ],
+  'dependency3' => [ .... ],
 ]);
 ```
 
