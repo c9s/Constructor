@@ -1,0 +1,29 @@
+{
+    "name": "corneltek/constructor",
+    "authors": [
+        {
+            "name": "c9s",
+            "email": "yoanlin93+composer@gmail.com"
+        }
+    ],
+    "require": {
+        "corneltek/cascading-attribute": "~1",
+        "corneltek/fileutil": "~1",
+        "corneltek/universal": "2.0.x-dev",
+        "corneltek/class-template": "~2",
+        "corneltek/codegen": "*",
+        "twig/twig": "*",
+        "pimple/pimple": "~3.0",
+        "corneltek/Universal": "dev-master"
+    },
+    "require-dev": {
+        "corneltek/phpunit-testmore": "dev-master"
+    },
+    "autoload": {
+        "psr-4": {
+            "Constructor\\": "src/Constructor/"
+        }
+    },
+    "license": "MIT",
+    "version": "0.99"
+}
