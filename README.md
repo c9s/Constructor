@@ -29,7 +29,37 @@ generators/schema/resources/assets/js/...
 generators/action/blueprint.php
 ```
 
+
 ## API Synopsis
+
+### blueprint.php
+
+```php
+<?php
+
+class ControllerBlueprint extends Blueprint 
+{
+
+    public function prepare() {  }
+
+    public function generate() {  }
+
+    public function finish() {  }
+
+}
+
+// The returned variable at the end will be invoked
+return new ControllerBlueprint(....);
+
+
+// You can also return multiple blueprints objects
+return [ new ControllerBlueprint(....), new ... ];
+```
+
+
+
+
+### GeneratorLoader
 
 ```php
 $loader = new Construct\GeneratorLoader([ 
